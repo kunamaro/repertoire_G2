@@ -1,0 +1,18 @@
+
+/* 
+    Created on : 23 mai 2017, 13:29:04
+    Author     : Lionel
+*/
+.contact {
+    height: 5%;
+    width: 80%;
+    padding: 0.5%;
+    margin:  auto;
+    background-color: lightcoral;
+    padding: 0.5%;
+        border: solid blue 1px;
+}
+
+.subContact {
+    padding:0.5%;
+}
