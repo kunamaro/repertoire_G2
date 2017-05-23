@@ -8,17 +8,17 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-
-<h1>TEST :<s:property value="%{fonctionTest()}" /> 
+<c:set var="Liste" var="%{fonctionTest()}" />
+<h1>TEST : 
     <s:form action="testRemplissageContact" >
         <s:submit value="TEST" />
     </s:form>
-<c:set var="Liste" value="%{fonctionTest()" scope="request" />
+<%--<c:set var="Liste" value="%{fonctionTest()" scope="request" />--%>
 <c:forEach items="Liste" var="item" varStatus="status" >
 
 
     <jsp:include page="/WEB-INF/SubJSP/contactContenair.jsp" >
-        <jsp:param name="monBean" value="${item}" /> 
+        <jsp:param name="monBean" value="${item.nom}" /> 
     </jsp:include>
     <c:set var="cpt"  scope="request" value="${cpt +1}" />
 </c:forEach>
