@@ -1,6 +1,7 @@
 <%@taglib prefix="s" uri="/struts-tags" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="css/index.css" >
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,7 +9,14 @@
         <title>Repertoire!</title>
     </head>
     <body>
-       HELLO WORLD
+        <div class="bodyContenair">
+            <div class="titleContenair">
+                <jsp:include page="/WEB-INF/SubJSP/titleContenair.jsp" />
+            </div>
+            <div class="contactContenair">
+                <jsp:include page="/WEB-INF/SubJSP/bodyContenair.jsp" />
+            </div>
+        </div>
     </body>
 </html>
 

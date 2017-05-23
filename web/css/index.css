@@ -1,0 +1,28 @@
+
+/* 
+    Created on : 23 mai 2017, 11:27:17
+    Author     : Lionel
+*/
+body {
+    margin: 0%;
+    border: 0%;
+}
+.bodyContenair {
+    margin: 0%;
+    padding: 0%;
+    padding-top: 1%;
+}
+
+.contactContenair {
+
+
+}
+
+.titleContenair {
+    display: block;
+    width: 100%;
+    height:20%;
+    background-color: green;
+    border:1px black;
+    
+}
