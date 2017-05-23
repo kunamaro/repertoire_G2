@@ -3,16 +3,16 @@
     Created on : 23 mai 2017, 11:46:07
     Author     : Lionel
 --%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@taglib prefix="s" uri="/struts-tags" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+
 
 <h1>TEST :<s:property value="%{fonctionTest()}" /> 
     <s:form action="testRemplissageContact" >
-        <s:submit value="testRemplissageContact" />
+        <s:submit value="TEST" />
     </s:form>
-</h1>
 <c:set var="cpt" value="1" scope="request" />
 <c:forEach begin="0" step="1" end="10"  >
 

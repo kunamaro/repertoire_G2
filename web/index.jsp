@@ -1,18 +1,22 @@
-<%-- 
-    Document   : index
-    Created on : 23 mai 2017, 11:11:29
-    Author     : John
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<link rel="stylesheet" href="css/index.css" >
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Application répertoire</title>
+        <title>Repertoire!</title>
     </head>
     <body>
-        <h1>Répertoire</h1>
+        <div class="bodyContenair">
+            <div class="titleContenair">
+                <jsp:include page="/WEB-INF/SubJSP/titleContenair.jsp" />
+            </div>
+            <div class="contactContenair">
+                <jsp:include page="/WEB-INF/SubJSP/bodyContenair.jsp" />
+            </div>
+        </div>
     </body>
 </html>
+
