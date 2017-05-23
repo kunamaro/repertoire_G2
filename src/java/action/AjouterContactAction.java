@@ -6,6 +6,7 @@
 package action;
 
 import com.opensymphony.xwork2.ActionSupport;
+import validation.ValidationContact;
 
 /**
  *
@@ -20,8 +21,18 @@ public class AjouterContactAction extends ActionSupport {
 
     @Override
     public String execute() throws Exception {
+        validate();
 
         return "success";
+    }
+
+    @Override
+    public void validate() {
+        ValidationContact vc = new ValidationContact();
+        vc.validationNom(nom);
+        vc.validationPrenom(prenom);
+        vc.validationEmail(email);
+        vc.validationTelephone(telephone);
     }
 
     /**
@@ -55,51 +66,29 @@ public class AjouterContactAction extends ActionSupport {
     /**
      * @return the email
      */
-    public String getemail() {
+    public String getEmail() {
         return email;
     }
 
     /**
      * @param email the email to set
      */
-    public void setemail(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
     /**
      * @return the telephone
      */
-    public String gettelephone() {
+    public String getTelephone() {
         return telephone;
     }
 
     /**
      * @param telephone the telephone to set
      */
-    public void settelephone(String telephone) {
+    public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
 
-    public void validateNom() {
-        if (nom.length() < 5 || nom.length() > 50) {
-            addFieldError("nom", "le nom doit faire maximum 50 lettres et minimum 5");
-        }
-    }
-    public void validatePrenom() {
-        if (prenom.length() < 5 || prenom.length() > 50) {
-            addFieldError("prenom", "le prenom doit faire maximum 50 lettres et minimum 5");
-        }
-    }
-    
-    public void validateemail() {
-        if (email.length() < 20 || email.length() > 50) {
-            addFieldError("email", "l'adresse mail doit faire maximum 50 lettres et minimum 20");
-        }
-    }
-    public void validatetelephone() {
-        if (telephone.length() =! 10 ) {
-            addFieldError("telephone", "le telephone doit faire 10 chiffres");
-        }
-    }
-    
 }
