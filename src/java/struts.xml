@@ -5,9 +5,18 @@
 
 <struts>
     <constant name="struts.devMode" value="true" />
-    <package name="mesActions" extends="struts-default">
-
-           
+    <package name="mesAction" extends="struts-default">
+        <action name="ajouterContact" class="action.AjouterContactAction" method="execute">
+            <result name="success">index.jsp</result>
+        </action>
+        <action name="modifierContact" class="action.ModifierContactAction" method="execute">
+            <result name="success">index.jsp</result>
+            <result name="input">index.jsp</result>
+        </action>
+        <action name="supprimerContact" class="action.SupprimerContactAction" method="execute">
+            <result name="success">index.jsp</result>
+            <result name="input">index.jsp</result>
+        </action>
     </package>
 
 </struts>
