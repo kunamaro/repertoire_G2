@@ -9,9 +9,3 @@
 <%@ page import="bean.Contact" %>
 <!DOCTYPE html>
 
-<c:forEach items="listeContact" var="item" varStatus="status"  >
-    10
-    <jsp:include page="/WEB-INF/SubJSP/contactContenair.jsp" >
-        <jsp:param name="contact" value="${item}" /> 
-    </jsp:include>
-</c:forEach>
