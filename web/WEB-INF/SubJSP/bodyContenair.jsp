@@ -21,6 +21,4 @@ COUCOU
     <jsp:include page="/WEB-INF/SubJSP/contactContenair.jsp" >
         <jsp:param name="contact" value="${item}" /> 
     </jsp:include>
-
-    <c:set var="cpt"  scope="request" value="${cpt +1}" />
 </c:forEach>
