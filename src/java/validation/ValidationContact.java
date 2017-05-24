@@ -6,30 +6,55 @@
 package validation;
 
 import com.opensymphony.xwork2.ActionSupport;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
  * @author nidham
  */
 public class ValidationContact extends ActionSupport {
-public ValidationContact(){}
 
-    public  void validationNom(String nom) {
-        if (nom.length() < 5 || nom.length() > 50) {
-            addFieldError("nom", "le nom doit faire maximum 50 lettres et minimum 5");
+    public ValidationContact() {
+    }
+    static Pattern pattern = null;
+    static Matcher matcher = null;
+
+    
+
+    public static String validationNom(String nom) {
+        String patternvalidation = "[A-Z][a-z]+)";//Ce modèle Valide comme "khelifi " Premier Lettre est en majuscule
+        matcher = pattern.matcher(nom);
+        if (matcher.matches()) {
+            return ("Pattern is Matched" + nom);
+        } else {
+            return ("Pattern is Not Matched" + nom);
         }
+
     }
 
-    public  void validationPrenom(String prenom) {
-        if (prenom.length() < 5 || prenom.length() > 50) {
-            addFieldError("prenom", "le prenom doit faire maximum 50 lettres et minimum 5");
+    public static String validationPrenom(String prenom) {
+        String patternvalidation = "[A-Z][a-z]+)";//Ce modèle Valide comme "Nidham " Premier Lettre est en majuscule
+        matcher = pattern.matcher(prenom);
+        if (matcher.matches()) {
+            return ("Pattern is Matched" + prenom);
+        } else {
+            return ("Pattern is Not Matched" + prenom);
         }
+
     }
 
-    public  void validationEmail(String email) {
-        if (email.length() < 20 || email.length() > 50) {
-            addFieldError("email", "l'adresse mail doit faire maximum 50 lettres et minimum 20");
+    public static String validationEmail(String email) {
+        String patternvalidation = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+        pattern = Pattern.compile(patternvalidation);
+        matcher = pattern.matcher("nsdbnbdfndb@gmail.com");
+        if (matcher.matches()) {
+            return ("Pattern is Matched" + email);
+        } else {
+            return ("Pattern is Not Matched" + email);
         }
+
     }
 
     public static boolean validationTelephone(String telephone) {

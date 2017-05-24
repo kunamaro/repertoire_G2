@@ -6,6 +6,7 @@
 package action;
 
 import com.opensymphony.xwork2.ActionSupport;
+import validation.ValidationContact;
 
 /**
  *
@@ -18,8 +19,16 @@ public class ModifierContactAction extends ActionSupport{
     private String telephone;
     @Override
      public String execute() throws Exception {
+         modifier();
 
         return "success";
+    }
+    public void modifier() {
+
+        System.out.println(ValidationContact.validationNom(nom));
+        System.out.println(ValidationContact.validationPrenom(prenom));
+        System.out.println(ValidationContact.validationEmail(email));
+        System.out.println(ValidationContact.validationTelephone(telephone));
     }
 
 

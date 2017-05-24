@@ -21,18 +21,17 @@ public class AjouterContactAction extends ActionSupport {
 
     @Override
     public String execute() throws Exception {
-        validate();
+        ajouter();
 
         return "success";
     }
 
-    @Override
-    public void validate() {
-        ValidationContact vc = new ValidationContact();
-        vc.validationNom(nom);
-        vc.validationPrenom(prenom);
-        vc.validationEmail(email);
-        vc.validationTelephone(telephone);
+    public void ajouter() {
+
+        System.out.println(ValidationContact.validationNom(nom));
+        System.out.println(ValidationContact.validationPrenom(prenom));
+        System.out.println(ValidationContact.validationEmail(email));
+        System.out.println(ValidationContact.validationTelephone(telephone));
     }
 
     /**
