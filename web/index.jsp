@@ -1,6 +1,6 @@
 <%@taglib prefix="s" uri="/struts-tags" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="css/index.css" >
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 
 <!DOCTYPE html>
 <html>
@@ -8,6 +8,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Repertoire!</title>
         <script src="page.js"></script>
+        <link rel="stylesheet" href="css/index.css" >
+        <link rel="stylesheet" href="css/title.css" >
+        <link rel="stylesheet" href="css/contact.css" >
     </head>
     <body>
         <div class="bodyContenair">
@@ -15,7 +18,7 @@
                 <jsp:include page="/WEB-INF/SubJSP/titleContenair.jsp" />
             </div>
             <div class="contactContenair">
-                <c:forEach items="listeContact" var="contact" varStatus="status"  >
+                <c:forEach items="${listeContact}" var="contact" varStatus="status"  >
 
                     <div class="contact" >
 
@@ -43,6 +46,7 @@
                 </c:forEach>
             </div>
         </div>
-    </body>
+    </div>
+</body>
 </html>
 
