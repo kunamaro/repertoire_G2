@@ -1,20 +1,20 @@
 
 
-function modifier() {
-    viderBouton("B2Cell");
+function modifier(val) {
+    viderBouton("B2Cell_");
     afficherB1("valider");
 
 }
 
 
-function  valider() {
+function  valider(val) {
     afficherB1("modifier");
     afficherB2("supprimer");
 
 }
 
 function supprimer() {
-    viderBouton("modifier");
+    viderBouton("B1Cell__");
     afficherB2("confirmer");
 
 }
@@ -35,31 +35,31 @@ function viderBouton(val) {
 function afficherB1(val) {
     switch (val) {
         case "modifier":
-            var txt = "<button onclick=\"valider()\" "
-                    + "value=\"B1\">Modifier<\/button>";
+             txt = "<button onclick=\"valider()\" "
+                    + "id=\"B1\">Modifier<\/button>";
             break;
 
         case "valider":
-            var txt = "<button onclick=\"modifier()\""
-                    + " value=\"B1\">Valider<\/button>";
+             txt = "<button onclick=\"modifier()\""
+                    + " id=\"B1\">Valider<\/button>";
             break;
     }
 
 
-    document.getElementById("B1Cell").innerHTML = txt;
+    document.getElementById("B1Cell_").innerHTML = txt;
 
 }
 function afficherB2(val) {
     switch (val) {
         case "supprimer":
-            var txt = "<button onclick=\"confirmerSuppression()\" "
-                    + "value=\"B2\">Modifier<\/button>";
+             txt = "<button onclick=\"confirmerSuppression()\" "
+                    + "id=\"B2\">Suppression<\/button>";
             break;
 
         case "confirmer":
-            var txt = "<button onclick=\"supprimer()\""
-                    + " value=\"B2\">Valider<\/button>";
+             txt = "<button onclick=\"supprimer()\""
+                    + " id=\"B2\">supprimer<\/button>";
             break;
     }
-    document.getElementById("B2Cell").innerHTML = txt;
+    document.getElementById("B2Cell_").innerHTML = txt;
 }

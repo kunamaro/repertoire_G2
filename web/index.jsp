@@ -17,11 +17,38 @@
             <div class="titleContenair">
                 <jsp:include page="/WEB-INF/SubJSP/titleContenair.jsp" />
             </div>
+            <c:set value="1" var="cpt" />
             <div class="contactContenair">
-                <c:forEach items="${listeContact}" var="contact" varStatus="status"  >
-
+                <c:forEach items="${listContact}" var="contact" varStatus="status"  >
+                    <c:set var="num"  scope="request" value="5" />
                     <div class="contact" >
 
+                        <div class="mainCell"><!-- 
+                            --><div class="subCell" id="infoCells"><!-- 
+                                --><div class="infoCell" id="identityCell"> 
+                                    <label>Personne&nbsp;:&nbsp;${contact.nom}&nbsp;${contact.prenom}</label>
+                                </div><!-- 
+                                --><div class="infoCell" id="telCell">
+                                    telephone&nbsp;:&nbsp;${contact.telephone}
+                                </div><!-- 
+                                --><div class="infoCell" id="mailCell">
+                                    email&nbsp;:&nbsp;${contact.email} 
+                                </div><!-- 
+                                --></div><!-- 
+                            --><div class="subCell" id="buttonCells"><!-- 
+                                --><div id="B1Cell_" > 
+                                    <button onclick="modifier( )"  id="B1_<c:out value="${num}" />">Modifier</button>
+                                </div><!-- 
+                                --><div id="B2Cell_">
+                                    <button onclick="supprimer( )" id="B2_<c:out value="${num}" />">Supprimer</button>
+                                </div><!-- 
+                                --></div><!-- 
+                            --></div>
+                    </div>
+
+                </c:forEach>
+                <div class="contact" >
+                    <div id="ajoutContenair">
                         <div class="mainCell"><!-- 
                             --><div class="subCell" id="infoCells"><!-- 
                                 --><div class="infoCell" id="identityCell"> 
@@ -43,10 +70,11 @@
                                 </div><!-- 
                                 --></div><!-- 
                             --></div>
-                </c:forEach>
-            </div>
+
+                    </div>
+                </div>
+            </c:forEach>
         </div>
-    </div>
 </body>
 </html>
 
