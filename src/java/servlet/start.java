@@ -44,9 +44,9 @@ public class start extends HttpServlet {
         for (Contact contact : contacts) {
             System.out.println("1: " + contact.getTelephone());
         }
-        
-        request.setAttribute("listContact", contacts);
         emf.close();
+        request.setAttribute("listContact", contacts);
+        
         
         request.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
     }

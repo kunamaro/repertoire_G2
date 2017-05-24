@@ -18,7 +18,7 @@
                 <jsp:include page="/WEB-INF/SubJSP/titleContenair.jsp" />
             </div>
             <div class="contactContenair">
-                <c:forEach items="${listeContact}" var="contact" varStatus="status"  >
+                <c:forEach items="${listContact}" var="contact">
 
                     <div class="contact" >
 
@@ -43,10 +43,10 @@
                                 </div><!-- 
                                 --></div><!-- 
                             --></div>
+                    </div>
                 </c:forEach>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>
 
