@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <jsp:forward page="start"/>
+        <jsp:forward page="/start"/>
     </body>
 </html>

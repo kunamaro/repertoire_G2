@@ -5,8 +5,13 @@
  */
 package servlet;
 
+import bean.Contact;
+import beanManager.ContactManager;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,7 +38,17 @@ public class start extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        request.getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("mabase");
+        ContactManager cm = new ContactManager(emf);
+        List<Contact> contacts = cm.listeTousContacts();
+        for (Contact contact : contacts) {
+            System.out.println("1: " + contact.getTelephone());
+        }
+        
+        request.setAttribute("listContact", contacts);
+        emf.close();
+        
+        request.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

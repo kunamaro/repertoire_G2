@@ -15,9 +15,9 @@
         <s:submit value="TEST" />
     </s:form>
 <%--<c:set var="Liste" value="%{fonctionTest()" scope="request" />--%>
-<c:forEach items="listeContact" var="item" varStatus="status"  >
+<c:forEach items="${listeContact}" var="item">
 
-
+COUCOU
     <jsp:include page="/WEB-INF/SubJSP/contactContenair.jsp" >
         <jsp:param name="contact" value="${item}" /> 
     </jsp:include>
