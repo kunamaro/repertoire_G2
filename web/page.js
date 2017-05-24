@@ -9,20 +9,20 @@ function modifier() {
 
 function  valider() {
     afficherB1("modifier");
+    afficherB2("supprimer");
 
-    supprimer();
 }
 
 function supprimer() {
-    viderBouton("B1Cell");
+    viderBouton("modifier");
     afficherB2("confirmer");
 
 }
 
 function confirmerSuppression() {
+    afficherB1("modifier");
+    afficherB2("supprimer");
 
-    afficherB2("supprimer")
-    modifier();
 
 }
 
@@ -35,12 +35,13 @@ function viderBouton(val) {
 function afficherB1(val) {
     switch (val) {
         case "modifier":
-            var txt = "<button onclick=\"modifier()\" "
+            var txt = "<button onclick=\"valider()\" "
                     + "value=\"B1\">Modifier<\/button>";
             break;
 
         case "valider":
-            var txt = "<button onclick=\"valider()\" value=\"B1\">Valider<\/button>";
+            var txt = "<button onclick=\"modifier()\""
+                    + " value=\"B1\">Valider<\/button>";
             break;
     }
 
@@ -56,7 +57,8 @@ function afficherB2(val) {
             break;
 
         case "confirmer":
-            var txt = "<button onclick=\"supprimer()\" value=\"B2\">Valider<\/button>";
+            var txt = "<button onclick=\"supprimer()\""
+                    + " value=\"B2\">Valider<\/button>";
             break;
     }
     document.getElementById("B2Cell").innerHTML = txt;

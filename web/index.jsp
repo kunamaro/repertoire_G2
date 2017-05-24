@@ -15,7 +15,9 @@
                 <jsp:include page="/WEB-INF/SubJSP/titleContenair.jsp" />
             </div>
             <div class="contactContenair">
-                <jsp:include page="/WEB-INF/SubJSP/bodyContenair.jsp" />
+                <jsp:include page="/WEB-INF/SubJSP/bodyContenair.jsp" >
+                    <jsp:param name="listeContact" value="${listeContact}"/>
+                </jsp:include>
             </div>
         </div>
     </body>
