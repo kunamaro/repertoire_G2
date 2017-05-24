@@ -58,10 +58,10 @@ public class ValidationContact extends ActionSupport {
     }
 
     public static boolean validationTelephone(String telephone) {
-        //validate phone numbers of format "1234567890"
+        // valide les numéros de téléphone du format "1234567890"
         if (telephone.matches("\\d{10}")) {
             return true;
-        } //validating phone number with -, . or spaces
+        } 
         else if (telephone.matches("\\d{2}[-\\.\\s]\\d{2}[-\\.\\s]\\d{2}[-\\.\\s]\\d{2}[-\\.\\s]\\d{2}[-\\.\\s]")) {
             return true;
         } else {
