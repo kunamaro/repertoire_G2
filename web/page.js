@@ -1,65 +1,63 @@
 
 
-function modifier(val) {
-    viderBouton("B2Cell_");
-    afficherB1("valider");
-
+function modifier(numcell) {
+    viderBouton("B2Cell_" + numcell);
+    afficherB1(1, numcell);
 }
 
+function supprimer(val) {
+    viderBouton("B1Cell_" + val);
+    afficherB2(1, val);
+}
 
 function  valider(val) {
-    afficherB1("modifier");
-    afficherB2("supprimer");
-
+    afficherB1(2, val);
+    afficherB2(2, val);
 }
 
-function supprimer() {
-    viderBouton("B1Cell__");
-    afficherB2("confirmer");
 
+
+function confirmerSuppression(val) {
+    afficherB1(2, val);
+    afficherB2(2, val);
 }
 
-function confirmerSuppression() {
-    afficherB1("modifier");
-    afficherB2("supprimer");
-
-
+function viderBouton(nomcell) {
+    document.getElementById(nomcell).innerHTML = "";
 }
 
-function viderBouton(val) {
-    document.getElementById(val).innerHTML =
-            "";
-
-}
-
-function afficherB1(val) {
+function afficherB1(val, numcell) {
     switch (val) {
-        case "modifier":
-             txt = "<button onclick=\"valider()\" "
+        case 1:
+            txt = "<button onclick=\"valider(" + numcell + ")\" "
                     + "id=\"B1\">Modifier<\/button>";
             break;
-
-        case "valider":
-             txt = "<button onclick=\"modifier()\""
+        case 2:
+            txt = "<button onclick=\"modifier(" + numcell + ")\" "
                     + " id=\"B1\">Valider<\/button>";
             break;
     }
 
 
-    document.getElementById("B1Cell_").innerHTML = txt;
-
+    document.getElementById("B1Cell_" + numcell).innerHTML = txt;
 }
-function afficherB2(val) {
+function afficherB2(val, numcell) {
     switch (val) {
-        case "supprimer":
-             txt = "<button onclick=\"confirmerSuppression()\" "
-                    + "id=\"B2\">Suppression<\/button>";
+        case 1:
+            txt = "<s:form action=\"supprimerContact\">"
+                    + "<s:set var=\"id_contact\" value=\"${"
+                    + numcell
+                    + "}\" />"
+                    + "<s:submit value=\"Confirmer\" />"
+                    + "</s:form>";
             break;
 
-        case "confirmer":
-             txt = "<button onclick=\"supprimer()\""
-                    + " id=\"B2\">supprimer<\/button>";
+        case 2:
+
+            txt = "<button onclick=\"supprimer(" + numcell + ")\""
+                    + " id=\"B2\">supprimer </button>";
+
             break;
     }
-    document.getElementById("B2Cell_").innerHTML = txt;
+    document.getElementById("B2Cell_" + numcell).innerHTML = txt;
 }

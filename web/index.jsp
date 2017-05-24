@@ -20,7 +20,7 @@
             <c:set value="1" var="cpt" />
             <div class="contactContenair">
                 <c:forEach items="${listContact}" var="contact" varStatus="status"  >
-                    <c:set var="num"  scope="request" value="5" />
+                    <c:set var="num"  scope="request" value="${contact.id_contact}" />
                     <div class="contact" >
 
                         <div class="mainCell"><!-- 
@@ -35,12 +35,12 @@
                                     email&nbsp;:&nbsp;${contact.email} 
                                 </div><!-- 
                                 --></div><!-- 
-                            --><div class="subCell" id="buttonCells"><!-- 
-                                --><div id="B1Cell_" > 
-                                    <button onclick="modifier( )"  id="B1_<c:out value="${num}" />">Modifier</button>
+                            --><div class="subCell" id="buttonCells<c:out value="${num}" />"><!-- 
+                                --><div id="B1Cell_<c:out value="${num}" />" > 
+                                    <button onclick="modifier(<c:out value="${num}" />)"  id="B1_<c:out value="${num}" />">Modifier</button>
                                 </div><!-- 
-                                --><div id="B2Cell_">
-                                    <button onclick="supprimer( )" id="B2_<c:out value="${num}" />">Supprimer</button>
+                                --><div id="B2Cell_<c:out value="${num}" />">
+                                    <button onclick="supprimer(<c:out value="${num}" />)" id="B2_<c:out value="${num}" />">Supprimer</button>
                                 </div><!-- 
                                 --></div><!-- 
                             --></div>
@@ -49,32 +49,42 @@
                 </c:forEach>
                 <div class="contact" >
                     <div id="ajoutContenair">
-                        <div class="mainCell"><!-- 
-                            --><div class="subCell" id="infoCells"><!-- 
-                                --><div class="infoCell" id="identityCell"> 
-                                    <label>Personne&nbsp;:&nbsp;${contact.nom}&nbsp;${contact.prenom}</label>
-                                </div><!-- 
-                                --><div class="infoCell" id="telCell">
-                                    telephone&nbsp;:&nbsp;${contact.telephone}
-                                </div><!-- 
-                                --><div class="infoCell" id="mailCell">
-                                    email&nbsp;:&nbsp;${contact.email} 
-                                </div><!-- 
-                                --></div><!-- 
-                            --><div class="subCell" id="buttonCells"><!-- 
-                                --><div id="B1Cell" > 
-                                    <button onclick="modifier()" value="B1">Modifier</button>
-                                </div><!-- 
-                                --><div id="B2Cell">
-                                    <button onclick="supprimer()" value="B1">Supprimer</button>
-                                </div><!-- 
-                                --></div><!-- 
-                            --></div>
-
+                        <s:form action="ajouterContact">
+                            <div class="mainCell"><!-- 
+                                --><div class="subCell" id="addInfoCells"><!-- 
+                                    --><div class="infoCell" id="addIdentityCell"> 
+                                        <s:label>nom</s:label>
+                                        <s:textfield  name="nom" type="string" />
+                                        <s:label>prenom</s:label>
+                                        <s:textfield  name="prenom" type="string" />
+                                    </div><!-- 
+                                    --><div class="infoCell" id="addTelCell">
+                                        <s:label>tel </s:label>
+                                        <s:textfield  name="telephone" type="string" />
+                                    </div><!-- 
+                                    --><div class="infoCell" id="addMailCell">
+                                        <s:label>mail </s:label>
+                                        <s:textfield  name="email" type="string" />
+                                    </div><!-- 
+                                    --></div><!-- 
+                                --><div class="subCell" id="addButtonCells"><!-- 
+                                    --><div id="B_ADD" > 
+                                        <s:submit value="Ajouter">Ajouter</s:submit>
+                                        </div><!-- 
+                                        --></div><!-- 
+                                    --></div>
+                            </s:form>
                     </div>
                 </div>
-            </c:forEach>
+            </div>
         </div>
-</body>
+
+        <s:form action="supprimerContact">
+            
+            <s:set value="id_personne" var="id_personne" />
+
+            <s:submit value="Confirmer" />
+        </s:form>
+    </body>
 </html>
 
