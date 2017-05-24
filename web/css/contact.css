@@ -10,9 +10,43 @@
     margin:  auto;
     background-color: lightcoral;
     padding: 0.5%;
-        border: solid blue 1px;
+    border: solid blue 1px;
 }
 
 .subContact {
     padding:0.5%;
+}
+
+.subCell  {
+    display: inline-block;
+    float: left;
+}
+
+.infoCell {
+    display: inline-block;
+}
+
+#infoCells {
+    height:100%;
+    width: 80%;
+}
+
+.infoCell {
+   
+
+}
+
+#telCell {
+    width: 20%;
+    background: white;
+}
+
+#mailCell {
+    width: 30%;
+    background: white;
+}
+
+#identityCell {
+    width: 50%;
+    background: white;
 }

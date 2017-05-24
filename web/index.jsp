@@ -7,6 +7,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Repertoire!</title>
+        <script src="page.js"></script>
     </head>
     <body>
         <div class="bodyContenair">
