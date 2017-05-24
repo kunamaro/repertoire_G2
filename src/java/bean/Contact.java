@@ -5,11 +5,25 @@
  */
 package bean;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author stag
  */
-public class Contact {
+
+@Entity
+@Table(name="contact")
+public class Contact implements Serializable  {
+    
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Long id_contact;
     private String nom;
     private String prenom;
     private String email;
@@ -69,6 +83,20 @@ public class Contact {
      */
     public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+
+    /**
+     * @return the id_contact
+     */
+    public Long getId_contact() {
+        return id_contact;
+    }
+
+    /**
+     * @param id_contact the id_contact to set
+     */
+    public void setId_contact(Long id_contact) {
+        this.id_contact = id_contact;
     }
 
 }
